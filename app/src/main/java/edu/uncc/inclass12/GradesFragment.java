@@ -140,7 +140,7 @@ public class GradesFragment extends Fragment {
                         mListener.deleteGrade(mGrade);
                         mGrades.clear();
                         mGrades.addAll(mListener.getGrades());
-                        //gradesAdapter.notifyDataSetChanged();
+                        gradesAdapter.notifyDataSetChanged();
                         gpaHours(mGrades);
                     }
                 });
