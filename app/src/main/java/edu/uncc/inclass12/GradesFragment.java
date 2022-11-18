@@ -44,14 +44,15 @@ public class GradesFragment extends Fragment {
 
         mGrades.clear();
         mGrades.addAll(mListener.getGrades());
-        //gpaHours(mGrades); // This is giving problems with my display.
+        gpaHours(mGrades); // This is giving problems with my display.
         binding.recyclerViewGrades.setLayoutManager(new LinearLayoutManager(getContext()));
         gradesAdapter = new GradesAdapter();
         binding.recyclerViewGrades.setAdapter(gradesAdapter);
+        getActivity().setTitle("Grades");
     }
 
     public float gpaHours(ArrayList<Grade> grades){
-        mGrades.clear();
+        //mGrades.clear();
         int hours = 0;
         double gpa = 0.0, gpaQual = 0.0, finGPA=4.0;
 
@@ -87,7 +88,7 @@ public class GradesFragment extends Fragment {
             return (float) finGPA;
         }
 
-
+        //gradesAdapter.notifyDataSetChanged();
         return 0;
     }
 
@@ -139,7 +140,8 @@ public class GradesFragment extends Fragment {
                         mListener.deleteGrade(mGrade);
                         mGrades.clear();
                         mGrades.addAll(mListener.getGrades());
-                        gradesAdapter.notifyDataSetChanged();
+                        //gradesAdapter.notifyDataSetChanged();
+                        gpaHours(mGrades);
                     }
                 });
             }
